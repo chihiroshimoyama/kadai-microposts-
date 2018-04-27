@@ -10,7 +10,7 @@
                 {{ $user->name }}
             </div>
             <div>
-                <P>{!! link_to_route('users.show', 'View profile', ['id' => $user->id] !!}</P>
+                <P>{!! link_to_route('users.show', 'View profile', ['id' => $user->id]) !!}</P>
             </div>
         </div>
     </li>
