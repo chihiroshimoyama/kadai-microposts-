@@ -62,4 +62,20 @@ class UsersController extends Controller
         
         return view('users.followers', $data);
     }
+    
+    public function favoriteToMicroposts()
+    {
+       
+        $user = \Auth::user();
+        $favoriteToMicroposts = $user->favoriteToMicroposts()->paginate(10);
+        
+        $data = [
+            'user' => $user,
+            'microposts' => $favoriteToMicroposts,
+        ];
+        
+        $data += $this->counts($user);
+        
+        return view('users.favoriteToMicroposts', $data);
+    }
 }
